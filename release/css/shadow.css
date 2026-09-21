@@ -1,0 +1,364 @@
+```css
+:host {
+  --font-body: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --overlay0: #6c7086;
+  --text: #cdd6f4;
+  --subtext0: #a6adc8;
+  --subtext1: #bac2de;
+  --blue: #89b4fa;
+  --sapphire: #74c7ec;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
+  --red: #f38ba8;
+  --mauve: #cba6f7;
+  --lavender: #b4befe;
+
+  --z-modal: 2147483647;
+  --z-resize-handle: 2147483646;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: var(--z-modal);
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(17, 17, 27, 0.75);
+  visibility: visible;
+}
+
+#modal-resize-handle {
+  position: fixed;
+  right: 395px;
+  top: 0;
+  height: 100vh;
+  width: 5px;
+  cursor: ew-resize;
+  z-index: var(--z-resize-handle);
+  background: rgba(203, 166, 247, 0.2);
+}
+
+#modal-resize-handle:hover {
+  background: rgba(203, 166, 247, 0.7);
+}
+
+#modal-content {
+  background-color: var(--base);
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--surface1);
+  width: 80%;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: var(--font-body);
+  color: var(--text);
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+#modal-message {
+  background-color: var(--green);
+  color: var(--crust);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  position: absolute;
+  right: 31px;
+  top: 31px;
+  display: none;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+#modal-title {
+  margin: 5px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  background-color: var(--mantle);
+  color: var(--text);
+  padding: 10px 15px 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#modal-actions {
+  text-align: center;
+  margin-top: -19px;
+  margin-bottom: 0;
+}
+
+#modal-text {
+  max-height: 50%;
+  max-width: 100%;
+  padding: 10px;
+  overflow: auto;
+  white-space: normal;
+  word-wrap: break-word;
+  font-family: var(--font-body);
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+#modal-close {
+  float: right;
+}
+
+#modal-actions-bottom {
+  background-color: var(--mantle);
+  border-radius: 20px;
+  margin: 0;
+  padding: 3px;
+  line-height: 11px;
+}
+
+#modal-copy,
+#modal-copy-bottom,
+#modal-rerun,
+#modal-rerun-bottom,
+#modal-settings,
+#modal-settings-bottom {
+  width: 23px;
+  height: 23px;
+  padding: 5px;
+  margin: 0 3px;
+  background-color: var(--surface0);
+  color: var(--text);
+  border-radius: 50%;
+  border: 1px solid var(--surface1);
+  cursor: pointer;
+}
+
+#modal-copy-bottom:hover,
+#modal-copy:hover,
+#modal-rerun-bottom:hover,
+#modal-rerun:hover,
+#modal-settings-bottom:hover,
+#modal-settings:hover {
+  background-color: var(--surface1);
+  border-color: var(--mauve);
+}
+
+.loading-bar-container {
+  height: 10px;
+  background-color: var(--surface0);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.loading-bar-indicator {
+  width: 15%;
+  height: 100%;
+  background-color: var(--yellow);
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: bounceLoader 2.5s infinite ease-in-out;
+}
+
+@keyframes bounceLoader {
+  0%, 100% {
+    left: -2%;
+  }
+
+  50% {
+    left: 87%;
+  }
+}
+
+#modal-close {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: var(--crust);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--blue);
+  border-radius: 4px;
+  border: 1px solid var(--blue);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#modal-close:focus,
+#modal-close:hover {
+  color: var(--crust);
+  background-color: var(--sapphire);
+  border-color: var(--sapphire);
+  outline: 0;
+}
+
+.u-pull-right {
+  float: right;
+}
+
+.u-pull-left {
+  float: left;
+}
+
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: var(--surface0);
+  color: var(--mauve);
+  border: 1px solid var(--surface1);
+  border-radius: 4px;
+}
+
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 700;
+  color: var(--text);
+}
+
+p {
+  margin-top: 0;
+  color: var(--text);
+}
+
+ul {
+  list-style: disc inside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+ol,
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+li p {
+  display: inline;
+  margin: 0;
+}
+
+.citation {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--lavender);
+}
+
+.citation:visited {
+  color: var(--mauve);
+}
+
+.citation:hover {
+  color: var(--blue);
+}
+
+.no-grounding {
+  background-color: var(--surface0);
+  color: var(--subtext1);
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-family: "Google Sans", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+  box-shadow: 0 0 0 1px rgba(205, 214, 244, 0.08);
+}
+
+.verdict {
+  color: var(--crust);
+  padding: 5px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.verdict-true {
+  background-color: var(--green);
+}
+
+.verdict-false {
+  background-color: var(--red);
+}
+
+.verdict-mixed {
+  background-color: var(--overlay0);
+  color: var(--text);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--surface1);
+}
+
+th {
+  background-color: var(--surface0);
+  color: var(--text);
+  font-weight: 700;
+}
+
+td {
+  background-color: var(--base);
+}
+
+a {
+  color: var(--blue);
+}
+
+a:hover {
+  color: var(--sapphire);
+}
+```

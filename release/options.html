@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Settings</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <link rel="stylesheet" href="css/options.css">
+  <link
+    rel="icon"
+    type="image/png"
+    href="images/icon-32.png"
+  >
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <img
+        src="images/icon-128.png"
+        alt="Free Fact Checker"
+        class="logo"
+      >
+
+      <h1>Free Fact Checker</h1>
+
+      <p class="subtitle">
+        Select any text on a web page or PDF and instantly
+        fact-check it with Google Search and Gemini.
+      </p>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status"></div>
+
+    <!-- API Key -->
+    <div class="form-group">
+      <label for="apiKey">Google Gemini API Key</label>
+
+      <input
+        type="password"
+        id="apiKey"
+        placeholder="Enter your Gemini API key"
+        autocomplete="off"
+      >
+
+      <p class="help-text">
+        Get your free API key from
+        <a
+          href="https://aistudio.google.com/apikey"
+          target="_blank"
+        >
+          Google AI Studio
+        </a>.
+        <br>
+
+        <a
+          href="https://quickstart.asksteve.to/get-gemini-key.html?src=ffc"
+          target="_blank"
+        >
+          Step-by-step instructions
+        </a>
+      </p>
+    </div>
+
+    <button id="saveButton">
+      Save &amp; Test
+    </button>
+
+    <!-- Model Settings -->
+    <div class="settings-group">
+      <div class="form-group">
+        <label for="modelSelect">Model</label>
+
+        <select id="modelSelect"></select>
+      </div>
+
+      <div class="help-text">
+        The Gemma model is slow but FREE.
+        To use a better, faster model you will need to set up
+        billing in
+        <a
+          href="https://aistudio.google.com/apikey"
+          target="_blank"
+        >
+          Google AI Studio
+        </a>.
+
+        See your rate limits
+        <a
+          href="https://aistudio.google.com/rate-limit"
+          target="_blank"
+        >
+          here
+        </a>.
+      </div>
+    </div>
+
+    <!-- Custom Prompt -->
+    <div class="settings-group">
+      <div class="form-group">
+        <label for="promptTextarea">
+          Fact-Check Prompt
+        </label>
+
+        <textarea
+          id="promptTextarea"
+          rows="12"
+          placeholder="Enter your custom prompt..."
+        ></textarea>
+
+        <p class="help-text">
+          Edit this to customize your fact-check.
+          Use <code>[[text]]</code> as a placeholder for
+          the selected text.
+          Changes are saved automatically.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        id="resetPromptButton"
+        class="button-secondary"
+      >
+        Reset to Default
+      </button>
+    </div>
+
+    <!-- Keyboard Shortcut -->
+    <div class="settings-group">
+      <div class="form-group">
+        <label>Keyboard Shortcut</label>
+
+        <p class="help-text">
+          Default:
+          <strong id="hotkeyDisplay"></strong>
+          <br>
+
+          To change, visit
+          <a href="#" id="shortcutLink">
+            Chrome's keyboard shortcut settings
+          </a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h3>How to use</h3>
+
+      <ol>
+        <li>
+          Select any text on a web page or PDF.
+        </li>
+
+        <li>
+          Press <strong id="hotkeyInstructions"></strong>,
+          click the toolbar icon, or right-click and choose
+          "Fact Check This".
+        </li>
+
+        <li>
+          View the results with sources and citations.
+        </li>
+      </ol>
+    </div>
+
+
+  </div>
+
+  <script src="scripts/options.js"></script>
+</body>
+</html>
